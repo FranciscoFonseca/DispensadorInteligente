@@ -1,32 +1,37 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import {
   Image,
   ImageBackground,
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
-  useColorScheme,
   View,
 } from 'react-native';
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
 function App(): React.JSX.Element {
+  const funcionBotonCocaCola = () => {
+    console.log('Boton de Coca Cola');
+  };
+
+  const funcionBotonPepsi = () => {
+    console.log('Boton de Pepsi');
+  };
+
+  const funcionBotonLipton = () => {
+    console.log('Boton de Lipton');
+  };
+
+  const funcionBotonCanadaDry = () => {
+    console.log('Boton de Canada Dry');
+  };
+
   return (
     <SafeAreaView>
       <ImageBackground source={require('./imagenes/fondo.png')}>
         <View style={estilos.contenedorPrincipal}>
           <TouchableOpacity
-            onPress={() => console.log('Button clicked')}
+            onPress={funcionBotonCocaCola}
             style={[estilos.touchableContainer, estilos.colorCocaCola]}>
             <View style={estilos.viewBoton}>
               <View style={estilos.viewLogo}>
@@ -41,7 +46,7 @@ function App(): React.JSX.Element {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => console.log('Button clicked')}
+            onPress={funcionBotonPepsi}
             style={[estilos.touchableContainer, estilos.colorPepsi]}>
             <View style={estilos.viewBoton}>
               <View style={estilos.viewLogo}>
@@ -56,9 +61,8 @@ function App(): React.JSX.Element {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => console.log('Button clicked')}
+            onPress={funcionBotonLipton}
             style={[estilos.touchableContainer, estilos.colorLipton]}>
-            {/* <Text>Lipton</Text> */}
             <View style={estilos.viewBoton}>
               <View style={estilos.viewLogo}>
                 <Image
@@ -72,7 +76,7 @@ function App(): React.JSX.Element {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => console.log('Button clicked')}
+            onPress={funcionBotonCanadaDry}
             style={[estilos.touchableContainer, estilos.colorCanadaDry]}>
             <View style={estilos.viewBoton}>
               <View style={estilos.viewLogo}>
