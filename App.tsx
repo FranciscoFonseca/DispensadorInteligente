@@ -6,112 +6,142 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
+  Image,
+  ImageBackground,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
 } from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <SafeAreaView>
+      <ImageBackground source={require('./imagenes/fondo.png')}>
+        <View style={estilos.contenedorPrincipal}>
+          <TouchableOpacity
+            onPress={() => console.log('Button clicked')}
+            style={[estilos.touchableContainer, estilos.colorCocaCola]}>
+            <View style={estilos.viewBoton}>
+              <View style={estilos.viewLogo}>
+                <Image
+                  source={require('./imagenes/cocacola-logo.png')}
+                  style={estilos.imagen}
+                />
+              </View>
+              <View style={estilos.viewTexto}>
+                <Text style={estilos.texto}>Coca Cola</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => console.log('Button clicked')}
+            style={[estilos.touchableContainer, estilos.colorPepsi]}>
+            <View style={estilos.viewBoton}>
+              <View style={estilos.viewLogo}>
+                <Image
+                  source={require('./imagenes/pepsi-logo.png')}
+                  style={estilos.imagen}
+                />
+              </View>
+              <View style={estilos.viewTexto}>
+                <Text style={estilos.texto}>Pepsi</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => console.log('Button clicked')}
+            style={[estilos.touchableContainer, estilos.colorLipton]}>
+            {/* <Text>Lipton</Text> */}
+            <View style={estilos.viewBoton}>
+              <View style={estilos.viewLogo}>
+                <Image
+                  source={require('./imagenes/lipton-logo.png')}
+                  style={estilos.imagen}
+                />
+              </View>
+              <View style={estilos.viewTexto}>
+                <Text style={estilos.texto}>Lipton</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => console.log('Button clicked')}
+            style={[estilos.touchableContainer, estilos.colorCanadaDry]}>
+            <View style={estilos.viewBoton}>
+              <View style={estilos.viewLogo}>
+                <Image
+                  source={require('./imagenes/canada-dry-logo.png')}
+                  style={estilos.imagen}
+                />
+              </View>
+              <View style={estilos.viewTexto}>
+                <Text style={estilos.texto}>Canada Dry</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
         </View>
-      </ScrollView>
+      </ImageBackground>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+const estilos = StyleSheet.create({
+  touchableContainer: {
+    margin: 10,
+    padding: 10,
+    backgroundColor: 'lightgray',
+    borderRadius: 5,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  viewBoton: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  imagen: {
+    width: 60,
+    height: 60,
   },
-  highlight: {
-    fontWeight: '700',
+  viewLogo: {
+    flex: 3,
+    alignItems: 'center',
+  },
+  colorCocaCola: {
+    backgroundColor: '#f40000',
+  },
+  colorPepsi: {
+    backgroundColor: '#0018FF',
+  },
+  colorLipton: {
+    backgroundColor: '#FEE302',
+  },
+  colorCanadaDry: {
+    backgroundColor: '#00B121',
+  },
+  viewTexto: {
+    flex: 7,
+    alignItems: 'center',
+  },
+  contenedorPrincipal: {
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  texto: {
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
+    textShadowColor: 'black',
+    textShadowRadius: 15,
   },
 });
 
